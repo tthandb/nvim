@@ -10,10 +10,12 @@ set mouse=a
 set incsearch
 set hlsearch
 
+set number
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 
+set encoding=UTF-8
 " open new split panes to right and below
 set splitright
 set splitbelow
