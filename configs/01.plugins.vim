@@ -14,4 +14,5 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
