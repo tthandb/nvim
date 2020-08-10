@@ -10,7 +10,6 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'alvan/vim-closetag'
-Plug 'ryanoasis/vim-devicons'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
