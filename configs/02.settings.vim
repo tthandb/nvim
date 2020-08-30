@@ -1,4 +1,5 @@
 let mapleader = "\<Space>"
+
 filetype plugin on
 filetype plugin indent on
 autocmd BufEnter * :set scroll=10
@@ -6,6 +7,9 @@ syntax on
 
 set encoding=UTF-8
 set mouse=a
+
+let NERDTreeShowLineNumbers=1
+autocmd FileType nerdtree setlocal relativenumber
 
 set incsearch
 set hlsearch
@@ -37,13 +41,3 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-
-" use alt+hjkl to move between split/vsplit panels
-"tnoremap <A-h> <C-\><C-n><C-w>h
-"tnoremap <A-j> <C-\><C-n><C-w>j
-"tnoremap <A-k> <C-\><C-n><C-w>k
-"tnoremap <A-l> <C-\><C-n><C-w>l
-"nnoremap <A-h> <C-w>h
-"nnoremap <A-j> <C-w>j
-"nnoremap <A-k> <C-w>k
-"nnoremap <A-l> <C-w>l

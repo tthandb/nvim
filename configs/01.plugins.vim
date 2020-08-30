@@ -1,6 +1,9 @@
 call plug#begin('~/.config/nvim/bundle')
 Plug 'scrooloose/nerdtree' 
+"Colorschemes
 Plug 'morhetz/gruvbox' 
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript' 
@@ -14,4 +17,8 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
+
+"snippet
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 call plug#end()
