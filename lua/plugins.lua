@@ -41,6 +41,10 @@ return require('packer').startup(function()
   -- Auto pair
   use 'jiangmiao/auto-pairs'
 
+  -- Auto closing tag
+  use 'alvan/vim-closetag'
+  use 'AndrewRadev/tagalong.vim'
+
   -- Colorschemes
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'christianchiarulli/nvcode-color-schemes.vim'
