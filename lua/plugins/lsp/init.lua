@@ -1,8 +1,6 @@
 local nvim_lsp = require('lspconfig')
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver', 'html', 'bashls' }
+local servers = { 'pyright', 'tsserver', 'html', 'bashls', 'cssls', 'bashls', 'tailwindcss' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -12,15 +10,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-nvim_lsp.pyright.setup{}
-nvim_lsp.html.setup{}
-nvim_lsp.cssls.setup{}
-nvim_lsp.bashls.setup{}
-nvim_lsp.tsserver.setup{
-  filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
-  root_dir = function() return vim.loop.cwd() end      -- run lsp for javascript in any directory
-
-}
+require('plugins.lsp.null-ls')
+require('plugins.lsp.tsserver')
 
 vim.api.nvim_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })

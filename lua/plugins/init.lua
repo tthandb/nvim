@@ -15,14 +15,23 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
 
+  -- Prettier
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
+
   -- Snippets
-	use 'hrsh7th/vim-vsnip'
+  use "saadparwaiz1/cmp_luasnip"
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
   
   -- Fuzzy finder
   use {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+
+  -- Surround
+  use 'tpope/vim-surround'
   
   -- Explorer
 	use {
@@ -33,27 +42,39 @@ return require('packer').startup(function()
 
   -- Optimize motions
 	use 'unblevable/quick-scope'
-	-- use 'justinmk/vim-sneak'
+	use 'justinmk/vim-sneak'
 
   -- Comment
-	use 'b3nj5m1n/kommentary'
+  use 'numToStr/Comment.nvim' -- Easily comment stuff
+
 
   -- Auto pair
-  use 'jiangmiao/auto-pairs'
-
-  -- Auto closing tag
-  use 'alvan/vim-closetag'
-  use 'AndrewRadev/tagalong.vim'
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
 
   -- Colorschemes
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'christianchiarulli/nvcode-color-schemes.vim'
 
   -- Color parentheses
   use 'luochen1990/rainbow'
 
-  -- Visualize git status
-  use 'airblade/vim-gitgutter'
+  -- Indent guidelines
+  use "lukas-reineke/indent-blankline.nvim"
+
+
+  -- Git decorations
+  use {
+  'lewis6991/gitsigns.nvim',
+  requires = {
+    'nvim-lua/plenary.nvim'
+  },
+  config = function()
+    require('gitsigns').setup()
+  end
+}
+
 
 end)
 

@@ -2,7 +2,7 @@
 vim.api.nvim_command([[
   let g:nvcode_termcolors=256
   syntax on
-  colorscheme aurora
+  colorscheme onedark
 ]])
 
 -- checks if your terminal has 24-bit color support
