@@ -1,17 +1,8 @@
--- require'nvim-treesitter.install'.compilers = { 'clang' }
-
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "tsx",
-    "lua",
-    "html",
-    "css",
-    "json",
-    "javascript",
-    "typescript",
-  }, 
+  ensure_installed = 'maintained',
   highlight = {
     enable = true,  
+    additional_vim_regex_highlighting = true,
   },
   playground = {
     enable = true,
@@ -24,7 +15,11 @@ require'nvim-treesitter.configs'.setup {
   },
   autotag = {
     enable = true,
+  },
+  indent = {
+    enable = true,
   }
+  
 }
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(

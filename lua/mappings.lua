@@ -20,8 +20,8 @@ vim.api.nvim_set_keymap("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, sile
 vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- Use <Tab> and <S-Tab> to switch text buffers
-vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Tab>", ":bprevious<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-l>", ":bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-h>", ":bprevious<CR>", { noremap = true, silent = true })
 
 -- Convenient tabbing
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })

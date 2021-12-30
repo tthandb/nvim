@@ -6,7 +6,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function()
-	-- Packer can manage itself
+	-- Foundation
 	use 'wbthomason/packer.nvim'
 
   -- Intellisense
@@ -16,29 +16,27 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
 
   -- Prettier
-  use('jose-elias-alvarez/null-ls.nvim')
-  use('MunifTanjim/prettier.nvim')
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'MunifTanjim/prettier.nvim'
+
+  -- Tabline
+  use 'akinsho/bufferline.nvim'
 
   -- Snippets
-  use "saadparwaiz1/cmp_luasnip"
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets'
   
   -- Fuzzy finder
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim' 
 
   -- Surround
   use 'tpope/vim-surround'
   
   -- Explorer
-	use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'nvim-tree'.setup {} end
-	}
+  use 'kyazdani42/nvim-tree.lua'
+  use 'kyazdani42/nvim-web-devicons'
 
   -- Optimize motions
 	use 'unblevable/quick-scope'
@@ -56,20 +54,18 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'christianchiarulli/nvcode-color-schemes.vim'
+  use 'folke/tokyonight.nvim'
 
   -- Color parentheses
   use 'luochen1990/rainbow'
 
   -- Indent guidelines
-  use "lukas-reineke/indent-blankline.nvim"
+  use 'lukas-reineke/indent-blankline.nvim'
 
 
   -- Git decorations
   use {
   'lewis6991/gitsigns.nvim',
-  requires = {
-    'nvim-lua/plenary.nvim'
-  },
   config = function()
     require('gitsigns').setup()
   end
