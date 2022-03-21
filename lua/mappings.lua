@@ -30,6 +30,3 @@ vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 -- Alternate way to save
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
-
--- Alternate way to quit without saving
-vim.api.nvim_set_keymap("n", "<C-Q>", ":q!<CR>", { noremap = true, silent = true })

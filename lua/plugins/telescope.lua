@@ -14,10 +14,10 @@ telescope.setup {
       i = {
         ["<esc>"] = actions.close,
       }
+    },
+    file_ignore_patterns = {
+      "node_modules"
     }
-  },
-  file_ignore_patterns = {
-    "node_modules"
   }
 }
 

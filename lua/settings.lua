@@ -1,4 +1,4 @@
-vim.g.mapleader = ' '
+vim.g.mapleader=' '
 vim.o.hidden=true                              -- Required to keep multiple buffers open multiple buffers
 vim.o.wrap=false                              -- Display long lines as just one line
 vim.o.encoding='utf-8'                      -- The encoding displayed
@@ -25,6 +25,9 @@ vim.o.updatetime=300                      -- Faster completion
 vim.o.timeoutlen=500                      -- By default timeoutlen is 1000 ms
 vim.o.clipboard='unnamedplus'               -- Copy paste between vim and everything else
 vim.opt.termguicolors=true
+vim.o.foldmethod='expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldlevelstart=99
 
 vim.api.nvim_command([[
   set t_Co=256                            " Support 256 colors

@@ -19,7 +19,6 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
   }
-  
 }
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
