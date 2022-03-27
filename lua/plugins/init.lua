@@ -38,7 +38,10 @@ return require('packer').startup(function()
 
   -- Explorer
   use 'kyazdani42/nvim-tree.lua'
+
+  -- use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-web-devicons'
+
 
   -- Optimize motions
   use 'unblevable/quick-scope'
@@ -66,6 +69,9 @@ return require('packer').startup(function()
   -- Git decorations
   use 'f-person/git-blame.nvim'
   use 'lewis6991/gitsigns.nvim'
+
+  -- Highlight yank
+  use 'machakann/vim-highlightedyank'
 
 end)
 
