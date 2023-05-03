@@ -1,6 +1,6 @@
 local nvim_lsp = require('lspconfig')
 
-local servers = { 'pyright', 'tsserver', 'html', 'bashls', 'cssls', 'bashls', 'tailwindcss' }
+local servers = { 'pyright', 'tsserver', 'html', 'bashls', 'cssls', 'tailwindcss' }
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {

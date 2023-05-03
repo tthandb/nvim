@@ -10,69 +10,22 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
-
 require'nvim-tree'.setup {
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = true,
-  ignore_ft_on_setup = {'dashboard'},
-  auto_close = true,
-  open_on_tab = false,
   hijack_cursor = true,
-  update_cwd = true,
+  sync_root_with_cwd = true,
   diagnostics = {
     enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
+    show_on_dirs = true
   },
   update_focused_file = {
     enable = true, 
-    update_cwd = true, 
-    ignore_list = {}
-  },
-  system_open = {
-    -- the command to run this, leaving nil should work in most cases
-    cmd = nil,
-    -- the command arguments as a list
-    args = {}
+    update_root = true, 
   },
 
   view = {
     width = 50, 
-    side = 'left', 
-    auto_resize = true, 
-    number=true
-  },
-  show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-    tree_width = 30,
   },
 }
 
