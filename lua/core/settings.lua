@@ -29,6 +29,10 @@ vim.o.foldmethod='expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevelstart=99
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.api.nvim_command([[
   set t_Co=256                            " Support 256 colors
   au FileType * set fo-=c fo-=r fo-=o    " Stop newline continution of comments
