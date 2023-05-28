@@ -1,19 +1,17 @@
-require('plugins')
-require('settings')
-require('mappings')
-require('colorschemes')
+require 'core.commands'
+require 'core.keymaps'
+require 'core.settings'
 
-require('plugins')
-require('plugins.lsp')
-require('plugins.autopairs')
-require('plugins.autotag')
-require('plugins.bufferline')
-require('plugins.bbye')
-require('plugins.cmp')
-require('plugins.comment')
-require('plugins.gitsigns')
-require('plugins.git-blame')
-require('plugins.nvim-tree')
-require('plugins.prettier')
-require('plugins.telescope')
-require('plugins.treesitter')
+-- Installation lazy
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        'git', 'clone', '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git', '--branch=stable', -- latest stable release
+        lazypath
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+
+local opts = {install = {colorscheme = {'onedarkpro'}}}
+require('lazy').setup('plugins', opts)
