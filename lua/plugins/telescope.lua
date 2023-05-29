@@ -3,6 +3,26 @@ return {
     dependencies = {'nvim-lua/plenary.nvim'},
     branch = '0.1.x',
     keys = {
+        {
+            'gd',
+            function()
+                return require('telescope.builtin').lsp_definitions()
+            end,
+            desc = "Goto Definition"
+        }, {"gr", "<cmd>Telescope lsp_references<cr>", desc = "References"},
+        {"gD", vim.lsp.buf.declaration, desc = "Go to Declaration"},
+        {
+            "gI",
+            "<cmd>Telescope lsp_implementations<cr>",
+            desc = "Go to Implementation"
+        }, {
+            "gy",
+            "<cmd>Telescope lsp_type_definitions<cr>",
+            desc = "Go to Type Definition"
+        }, {"K", vim.lsp.buf.hover, desc = "Hover"},
+        {"gK", vim.lsp.buf.signature_help, desc = "Signature Help"},
+        {"<leader>gf", vim.lsp.buf.format, desc = "Format document"},
+        {"<leader>ga", vim.lsp.buf.code_action, desc = "Code action"},
         {'<leader>fn', ':Telescope find_files<CR>', desc = "Find files"},
         {'<leader>fg', ':Telescope live_grep<CR>', desc = "Find text"},
         {'<leader>fb', ':Telescope buffers<CR>', desc = "Find buffers"},

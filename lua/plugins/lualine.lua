@@ -4,7 +4,7 @@ return {
     event = {'BufReadPost', 'BufNewFile'},
     opts = {
         options = {
-            theme = 'onedark',
+            theme = 'github_dark',
             component_separators = {left = '', right = ''},
             section_separators = {left = '', right = ''},
             disabled_filetypes = {

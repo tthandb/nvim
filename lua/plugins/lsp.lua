@@ -1,6 +1,4 @@
-local lsp_server = {
-    "tsserver", "html", "bashls", "cssls", "tailwindcss", "lua_ls"
-}
+local lsp_server = {"tsserver", "html", "bashls", "cssls", "lua_ls"}
 return {
     {
         "neovim/nvim-lspconfig",
@@ -12,32 +10,11 @@ return {
             }, {
                 "jay-babu/mason-null-ls.nvim",
                 opts = {
-                    ensure_installed = {
-                        "stylua", "luacheck", "prettierd", "eslint_d"
-                    }
+                    automatic_setup = true,
+                    handlers = {},
+                    ensure_installed = {"eslint_d", "stylua"}
                 }
             }
-        },
-        keys = {
-            {
-                'gd',
-                function()
-                    return require('telescope.builtin').lsp_definitions()
-                end,
-                desc = "Goto Definition"
-            }, {"gr", "<cmd>Telescope lsp_references<cr>", desc = "References"},
-            {"gD", vim.lsp.buf.declaration, desc = "Go to Declaration"},
-            {
-                "gI",
-                "<cmd>Telescope lsp_implementations<cr>",
-                desc = "Go to Implementation"
-            }, {
-                "gy",
-                "<cmd>Telescope lsp_type_definitions<cr>",
-                desc = "Go to Type Definition"
-            }, {"K", vim.lsp.buf.hover, desc = "Hover"},
-            {"gK", vim.lsp.buf.signature_help, desc = "Signature Help"},
-            {"<leader>gf", vim.lsp.buf.format, desc = "Format document"}
         },
         event = {"BufReadPre", "BufNewFile"},
         config = function()
@@ -70,7 +47,41 @@ return {
                 }
             })
 
-            lspconfig.tailwindcss.setup({})
+            lspconfig.tsserver.setup({
+                on_attach = function(client, bufnr)
+                    navic.attach(client, bufnr)
+                end,
+                filetypes = {"typescript", "typescriptreact", "typescript.tsx"},
+                cmd = {"typescript-language-server", "--stdio"}
+            })
         end
+    }, {
+        'jose-elias-alvarez/null-ls.nvim',
+        dependencies = 'williamboman/mason.nvim',
+        event = {'BufReadPre', 'BufNewFile'},
+        opts = function()
+            local nls = require('null-ls')
+            return {
+                sources = {
+                    nls.builtins.formatting.stylua,
+                    nls.builtins.formatting.eslint_d,
+                    nls.builtins.code_actions.eslint_d,
+                    nls.builtins.diagnostics.eslint_d
+                }
+            }
+        end
+    }, {
+        'williamboman/mason.nvim',
+        build = ':MasonUpdate',
+        cmd = 'Mason',
+        opts = {
+            ui = {
+                icons = {
+                    package_installed = '✓',
+                    package_pending = '➜',
+                    package_uninstalled = '✗'
+                }
+            }
+        }
     }
 }
