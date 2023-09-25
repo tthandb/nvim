@@ -1,4 +1,4 @@
-local lsp_server = {"tsserver", "html", "bashls", "cssls", "lua_ls"}
+local lsp_server = {"tsserver", "html", "cssls", "lua_ls"}
 return {
     {
         "neovim/nvim-lspconfig",
