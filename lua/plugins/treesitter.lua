@@ -1,17 +1,56 @@
 return {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    event = {'BufReadPost', 'BufNewFile'},
-    opts = {
-        ensure_installed = {
-            'lua', 'c', 'cpp', 'javascript', 'typescript', 'json', 'git_config',
-            'git_rebase', 'gitcommit', 'gitignore', 'gitattributes', 'comment',
-            'diff', 'tsx'
-        },
-        ignore_install = {''},
-        auto_install = true,
-        matchup = {enabled = true},
-        highlight = {enable = true}
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
+  opts = {
+    ensure_installed = {
+      "bash",
+      "c",
+      "comment",
+      "cpp",
+      "html",
+      "javascript",
+      "typescript",
+      "jsdoc",
+      "json",
+      "lua",
+      "luadoc",
+      "luap",
+      "markdown",
+      "markdown_inline",
+      "python",
+      "query",
+      "regex",
+      "tsx",
+      "typescript",
+      "vim",
+      "vimdoc",
+      "yaml",
     },
-    config = function(_, opts) require('nvim-treesitter.configs').setup(opts) end
+    auto_install = true,
+    matchup = { enabled = true },
+    highlight = { enable = true },
+    indent = { enable = true },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<C-space>",
+        node_incremental = "<C-space>",
+        scope_incremental = false,
+        node_decremental = "<bs>",
+      },
+    },
+    textobjects = {
+      move = {
+        enable = true,
+        goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+        goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+        goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+        goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+      },
+    },
+  },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end,
 }

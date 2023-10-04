@@ -1,5 +1,3 @@
--- Bookmark
-
 return {
   "ThePrimeagen/harpoon",
   dependencies = {
