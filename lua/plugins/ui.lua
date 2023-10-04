@@ -7,6 +7,7 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 200
     end,
+    opts = {},
   },
 
   -- Statusline
@@ -64,7 +65,7 @@ return {
       extensions = { "man", "nvim-tree", "toggleterm" },
     },
   },
-  
+
   {
     "SmiteshP/nvim-navic",
     event = "LspAttach",
