@@ -11,7 +11,6 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
-      local navic = require("nvim-navic")
 
       -- enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -38,9 +37,7 @@ return {
         if is_general then
           lspconfig[server].setup({
             capabilities = capabilities,
-            on_attach = function(client, bufnr)
-              navic.attach(client, bufnr)
-            end,
+            on_attach = on_attach,
           })
         end
       end
@@ -51,9 +48,7 @@ return {
 
       lspconfig["lua_ls"].setup({
         capabilities = capabilities,
-        on_attach = function(client, bufnr)
-          navic.attach(client, bufnr)
-        end,
+        on_attach = on_attach,
         settings = {
           Lua = {
             diagnostics = {
