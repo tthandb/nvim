@@ -56,6 +56,11 @@ return {
       follow_current_file = { enabled = true },
       use_libuv_file_watcher = true,
       group_empty_dirs = true, -- when true, empty folders will be grouped together
+      filtered_items = {
+        visible = false, -- when true, they will just be displayed differently than normal items
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
     },
   },
 }
