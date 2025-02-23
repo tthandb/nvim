@@ -99,8 +99,8 @@ return {
           "prettier", -- prettier formatter
           "stylua", -- lua formatter
           "eslint_d", -- js linter
-          "isort", -- python formatter
-          "black", -- python formatter
+          -- "isort", -- python formatter
+          -- "black", -- python formatter
         },
       })
     end,
@@ -124,8 +124,8 @@ return {
           "prettier", -- prettier formatter
           "stylua", -- lua formatter
           "eslint_d", -- js linter
-          "black", -- python formatter
-          "pylint", -- python linter
+          -- "black", -- python formatter
+          -- "pylint", -- python linter
         },
       })
 

@@ -22,7 +22,7 @@ return {
         "luap",
         "markdown",
         "markdown_inline",
-        "python",
+        -- "python",
         "query",
         "regex",
         "tsx",
