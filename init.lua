@@ -1,5 +1,9 @@
-require("core.keymaps")
-require("core.options")
+-- Detect VSCode/Cursor environment first
+if not vim.g.vscode then
+  require("core.keymaps")
+  require("core.options")
+end
+
 
 -- Installation lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -15,4 +19,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+if not vim.g.vscode then
+  require("lazy").setup("plugins")
+end
