@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo "Installing NVIM"
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+./nvim-linux-x86_64.appimage --appimage-extract
+mkdir -p /opt/nvim
+mv nvim-linux-x86_64.appimage /opt/nvim/nvim
+
 # Function to check and install apt package
 install_apt_package() {
     local package_name=$1
