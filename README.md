@@ -1,65 +1,41 @@
-# My Neovim Configuration
+# Neovim config
 
-A modern and feature-rich Neovim setup focused on productivity and aesthetics.
+Personal Neovim setup, slimmed down to what I actually use.
 
 ## Features
 
-- 🚀 Fast startup with lazy loading via [lazy.nvim](https://github.com/folke/lazy.nvim)
-- 🧠 Intelligent code completion with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- 🔍 Fuzzy finding with [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- 🌳 Syntax highlighting with [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- 🧰 LSP support with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- 📁 File explorer with [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- 🔄 Git integration with [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) and [neogit](https://github.com/TimUntersberger/neogit)
-- 📊 Beautiful statusline with [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- 🖌️ Tokyo Night theme with [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
-- 🏄 Fast navigation with [leap.nvim](https://github.com/ggandor/leap.nvim) and [harpoon](https://github.com/ThePrimeagen/harpoon)
-- 💾 Session management with [auto-session](https://github.com/rmagatti/auto-session)
-- 🔧 Auto formatting with [conform.nvim](https://github.com/stevearc/conform.nvim)
-- 👨‍💻 Linting with [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+- Lazy plugin loading via [lazy.nvim](https://github.com/folke/lazy.nvim)
+- LSP via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + [mason.nvim](https://github.com/williamboman/mason.nvim) (`ts_ls`, `lua_ls`)
+- Completion via [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) + [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- Syntax via [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- Fuzzy finder: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- File explorer: [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- Git inline: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- Statusline / tabs: [lualine](https://github.com/nvim-lualine/lualine.nvim) + [bufferline](https://github.com/akinsho/bufferline.nvim)
+- Theme: [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- Formatting: [conform.nvim](https://github.com/stevearc/conform.nvim) (prettier, stylua)
+- Linting: [nvim-lint](https://github.com/mfussenegger/nvim-lint) (eslint_d)
 
-## Installation
+## Install
 
-1. Make sure you have Neovim 0.9+ installed
-2. Clone this repository:
-   ```
-   git clone https://github.com/tthandb/nvim.git ~/.config/nvim
-   ```
-3. Run the installation script to install necessary dependencies:
-   ```
-   cd ~/.config/nvim
-   ./install.sh
-   ```
-4. Start Neovim and let lazy.nvim install all plugins:
-   ```
-   nvim
-   ```
+Requires Neovim 0.10+.
 
-## Key Plugins
+```sh
+git clone https://github.com/tthandb/nvim.git ~/.config/nvim
+cd ~/.config/nvim && ./install.sh
+nvim   # lazy.nvim + Mason auto-install on first launch
+```
 
-- **lazy.nvim**: Plugin manager
-- **nvim-lspconfig**: Language Server Protocol support
-- **mason.nvim**: LSP/DAP/linter manager
-- **nvim-cmp**: Completion engine with LuaSnip integration
-- **telescope.nvim**: Fuzzy finder and picker
-- **neo-tree.nvim**: File explorer
-- **tokyonight.nvim**: Color scheme
-- **treesj**: Code block splitting/joining
-- **which-key.nvim**: Keybinding helper
-- **gitsigns.nvim** & **neogit**: Git integration
-- **nvim-treesitter**: Better syntax highlighting
-- **bufferline.nvim**: Buffer tabs
-- **nvim-autopairs**: Auto-closing brackets
-- **harpoon**: File bookmarking
-- **leap.nvim** & **flit.nvim**: Fast navigation
+## Layout
 
-## Customization
+```
+init.lua                   # entrypoint, bootstraps lazy.nvim
+lua/core/options.lua       # vim options
+lua/core/keymaps.lua       # base keymaps (jk-Esc, window nav, line move)
+lua/plugins/*.lua          # one file per feature area
+```
 
-Edit files in the `lua` directory to customize your configuration:
-- `init.lua`: Main configuration file
-- `plugins.lua`: Plugin specifications 
-- `keymaps.lua`: Custom keybindings
-- `options.lua`: Neovim options
+See [CLAUDE.md](./CLAUDE.md) for the architecture reference.
 
 ## License
 

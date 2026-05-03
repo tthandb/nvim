@@ -55,19 +55,3 @@ vim.cmd([[
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
   augroup END
 ]])
-
--- g:clipboard definition for Windows WSL
-vim.cmd([[
-  let g:clipboard = {
-    \   'name': 'WslClipboard',
-    \   'copy': {
-      \      '+': 'clip.exe',
-      \      '*': 'clip.exe',
-      \    },
-      \   'paste': {
-        \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-        \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-        \   },
-        \   'cache_enabled': 0,
-        \ }
-        ]])

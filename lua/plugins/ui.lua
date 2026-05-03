@@ -1,10 +1,4 @@
 return {
-  {
-    "NvChad/nvim-colorizer.lua",
-    event = { "BufReadPre", "BufNewFile" },
-    config = true,
-  },
-
   -- Display a popup with possible key bindings of the command you started typing
   {
     "folke/which-key.nvim",
@@ -16,7 +10,7 @@ return {
     opts = {},
   },
 
-  -- Statusline
+  -- Tabline (vim tabs)
   {
     "akinsho/bufferline.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -29,22 +23,17 @@ return {
     },
   },
 
+  -- Statusline
   {
     "nvim-lualine/lualine.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
       options = {
-        theme = "vscode",
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        disabled_filetypes = {
-          "mason",
-          "dashboard",
-          "NeogitStatus",
-          "NeogitCommitView",
-          "NeogitPopup",
-        },
+        theme = "tokyonight",
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = { "mason" },
       },
       sections = {
         lualine_a = { "mode" },
@@ -53,29 +42,24 @@ return {
           "diff",
           { "diagnostics", sources = { "nvim_lsp", "nvim_diagnostic" } },
         },
-        lualine_c = { require("auto-session.lib").current_session_name },
+        lualine_c = { "filename" },
         lualine_x = { "fileformat", "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
-      extensions = { "man", "nvim-tree", "toggleterm" },
+      extensions = { "man", "nvim-tree" },
     },
   },
 
   {
     "petertriho/nvim-scrollbar",
-    event = {
-      "BufReadPost",
-      "BufNewFile",
-    },
+    event = { "BufReadPost", "BufNewFile" },
   },
+
   {
     "hiphish/rainbow-delimiters.nvim",
-    opts = {},
     config = function()
-      -- This module contains a number of default definitions
       local rainbow_delimiters = require("rainbow-delimiters")
-
       vim.g.rainbow_delimiters = {
         strategy = {
           [""] = rainbow_delimiters.strategy["global"],
@@ -97,20 +81,15 @@ return {
       }
     end,
   },
+
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     config = function()
-      local highlight = {
-        "CursorColumn",
-        "Whitespace",
-      }
+      local highlight = { "CursorColumn", "Whitespace" }
       require("ibl").setup({
         indent = { highlight = highlight, char = "" },
-        whitespace = {
-          highlight = highlight,
-          remove_blankline_trail = false,
-        },
+        whitespace = { highlight = highlight, remove_blankline_trail = false },
         scope = { enabled = false },
       })
     end,
